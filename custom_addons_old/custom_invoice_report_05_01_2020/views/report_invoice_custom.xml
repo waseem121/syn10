@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="report_invoice_custom_document">
+    <t t-call="custom_invoice_report.external_layout_custom_invoice">
+        <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})" />
+        <div class="page">
+
+            <div style="margin-left: 14.6cm">
+                <span>Salesperson: <span t-field="o.user_id.name"/></span>
+            </div>
+
+            <div style="margin-top: 0.2cm">
+
+            </div>
+            <table style="border: none;">
+                <tr>
+                    <td style="width: 2.0cm"></td>
+                    <td style="width: 5.2cm"><span t-field="o.partner_id.name"/></td>
+                    <td style="width: 3cm"></td>
+                    <td style="width: 6.1cm"></td>
+                    <td style="width: 5cm"><span t-field="o.partner_id.name"/></td>
+                </tr>
+            </table>
+             <table style="border: none;">
+                <tr>
+                    <td style="width: 2cm"></td>
+                    <td style="width: 5.2cm"></td>
+                    <td style="width: 3cm"></td>
+                    <td style="width: 6.1cm"><span t-field="o.number"/></td>
+                    <td style="width: 5cm"></td>
+                </tr>
+
+
+            </table>
+            <div style="margin-top: 0.15cm">
+
+            </div>
+            <table style="border: none;">
+                <tr>
+                    <td style="width: 2cm"></td>
+                    <td style="width: 5.2cm"> <span t-field="o.account_id.code"/></td>
+                </tr>
+            </table>
+              <div style="margin-top: 0.15cm">
+
+            </div>
+            <table style="border: none;">
+                <tr>
+                    <td style="width: 2.0cm"></td>
+                    <td style="width: 5.2cm"></td>
+                    <td style="width: 3cm"></td>
+                    <td style="width: 5cm"><p t-field="o.date_invoice"/></td>
+                </tr>
+            </table>
+
+            <div style="margin-top: 1.7cm">
+
+            </div>
+
+            <table style="border: none;  border-collapse:separate;border-spacing:0 5px;">
+                    <tr t-foreach="o.invoice_line_ids" t-as="l" >
+                        <td style="width: 4.7cm"><span t-field="l.product_id.default_code"/></td>
+                        <td style="width: 8cm"><span t-field="l.product_id.name"/></td>
+                        <td style="width: 1.5cm;text-align: right" ><span t-field="l.uom_id"/></td>
+
+                        <td style="width: 2.0cm;text-align: right" >
+                            <span t-field="l.quantity"/>
+                        </td>
+                        <td style="width: 2.8cm;text-align: right" >
+                            <span t-esc="l.price_unit"/>
+                        </td>
+
+                        <td style="width: 3cm;text-align: right">
+                            <span t-esc="l.price_subtotal"/>
+                        </td>
+                    </tr>
+            </table>
+
+        </div>
+    </t>
+</template>
+
+<template id="report_invoice_custom_report">
+    <t t-call="report.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="custom_invoice_report.report_invoice_custom_document" t-lang="o.partner_id.lang"/>
+        </t>
+    </t>
+</template>
+
+</odoo>

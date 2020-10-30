@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    	<template id="external_layout_custom_invoice">
+            <!-- Multicompany -->
+            <t t-if="not o and doc">
+            <t t-set="o" t-value="doc"/>
+            </t>
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id"></t>
+
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"></t>
+            </t>
+
+            <t t-call="custom_invoice_report.external_layout_header_custom_invoice" />
+            <t t-raw="0" />
+            <t t-call="custom_invoice_report.external_layout_footer_custom_invoice" />
+        </template>
+
+        <template id="external_layout_header_custom_invoice">
+		    <div class="header">
+
+		    </div>
+		</template>
+
+        <template id="external_layout_footer_custom_invoice">
+            <div class="footer">
+                <table style="border: none;">
+                        <tr>
+                            <td style="width: 19cm"></td>
+                            <td style="width: 2.8cm;text-align: right">
+                                <span t-field="o.amount_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                            </td>
+                        </tr>
+                </table>
+                 <div style="margin-top: 0.5cm">
+                </div>
+                 <table style="border: none;">
+                        <tr>
+                            <td style="width: 19cm"></td>
+                            <td style="width: 2.8cm;text-align: right">
+                                <span t-field="o.amount_tax" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                            </td>
+
+                        </tr>
+                </table>
+                <div style="margin-top: 0.5cm">
+                </div>
+                 <table style="border: none;">
+                        <tr>
+                            <td style="width: 19cm"></td>
+                            <td style="width: 2.8cm;text-align: right">
+                                <span t-field="o.residual" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                            </td>
+                        </tr>
+                </table>
+
+            </div>
+        </template>
+
+</odoo>

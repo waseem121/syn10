@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+<!--        <record id="aspl_stock_transaction_form" model="ir.ui.view">-->
+<!--            <field name="name">aspl.transaction.form</field>-->
+<!--            <field name="model">stock.inventory.transaction</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <form string="Transaction Form">-->
+<!--                    <header>-->
+<!--                        <button string="Validate" name="action_validate" states="draft" type="object"-->
+<!--                                class="oe_highlight"/>-->
+<!--                        <button string="Cancel" name="action_cancel" states="draft" type="object" class="oe_highlight"/>-->
+<!--                        <button string="Reset" name="action_reset_draft" states="cancel" type="object"-->
+<!--                                class="oe_highlight"/>-->
+<!--                        <field name="state" widget="statusbar"/>-->
+<!--                    </header>-->
+<!--                    <sheet>-->
+<!--                        <h1>-->
+<!--                            <field name="name" readonly="1" nolabel="1"/>-->
+<!--                        </h1>-->
+<!--                        <group>-->
+<!--                            <group>-->
+<!--                                <field name="location_id"/>-->
+<!--                                <field name="scrap_location_id"/>-->
+<!--                            </group>-->
+<!--                            <group></group>-->
+<!--                            <notebook>-->
+<!--                                <page string="Products">-->
+<!--                                    <field name="transaction_line_ids">-->
+<!--                                        <tree editable="1">-->
+<!--                                            <field name="product_id"/>-->
+<!--                                            <field name="location_id"/>-->
+<!--                                            <field name="package_id"/>-->
+<!--                                            <field name="theoretical_qty"/>-->
+<!--                                            <field name="product_qty"/>-->
+<!--                                        </tree>-->
+<!--                                    </field>-->
+<!--                                </page>-->
+<!--                            </notebook>-->
+<!--                        </group>-->
+<!--                        <group>-->
+<!--                            &lt;!&ndash;                            <field name="reason"/>&ndash;&gt;-->
+<!--                        </group>-->
+<!--                    </sheet>-->
+<!--                </form>-->
+<!--            </field>-->
+<!--        </record>-->
+
+<!--        <record id="aspl_stock_transaction_tree" model="ir.ui.view">-->
+<!--            <field name="name">aspl.transaction.tree</field>-->
+<!--            <field name="model">stock.inventory.transaction</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <tree>-->
+<!--                    <field name="name"/>-->
+<!--                    &lt;!&ndash;                    <field name="product_id"/>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    <field name="product_qty"/>&ndash;&gt;-->
+<!--                    <field name="location_id"/>-->
+<!--                    <field name="scrap_location_id"/>-->
+<!--                    &lt;!&ndash;                    <field name="reason"/>&ndash;&gt;-->
+<!--                    <field name="state"/>-->
+<!--                </tree>-->
+<!--            </field>-->
+<!--        </record>-->
+
+<!--        <record id="action_stock_transaction_view" model="ir.actions.act_window">-->
+<!--            <field name="name">Stock Transaction</field>-->
+<!--            <field name="res_model">stock.inventory.transaction</field>-->
+<!--            <field name="view_type">form</field>-->
+<!--            <field name="view_mode">tree,form</field>-->
+<!--        </record>-->
+
+<!--        <menuitem-->
+<!--                name="Transaction"-->
+<!--                id="menu_aspl_stock_transaction"-->
+<!--                parent="stock.menu_stock_inventory_control"-->
+<!--                action="custom_stock_report.action_stock_transaction_view"-->
+<!--        />-->
+
+
+    </data>
+</odoo>

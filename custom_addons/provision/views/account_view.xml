@@ -1,0 +1,40 @@
+<odoo>
+  <data>
+      
+    <record id="invoice_line_add_field_provision_inherit" model="ir.ui.view">
+        <field name="name">invoice.line.add.field.provision.inherit</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="direct_sale.invoice_line_add_field" />
+        <field name="arch" type="xml">
+            <field name="partner_shipping_id" position="after">
+                <field name="x_picking_id"/>
+            </field>
+            <field name="location_id" position="after">
+                <field name="lpo_number"/>
+                <field name="job_number"/>
+            </field>            
+            <xpath expr="//field[@name='invoice_line_ids_two']/tree/field[@name='name']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='invoice_line_ids_two']/tree/field[@name='uom_id']" position="replace">
+                <field name="uom_id" groups="product.group_uom" tabindex="-1"/>
+            </xpath>
+            
+            <xpath expr="//field[@name='invoice_line_ids_two']/tree/field[@name='price_unit']" position="replace"></xpath>
+            <xpath expr="//field[@name='invoice_line_ids_two']/tree/field[@name='discount']" position="replace"></xpath>
+            <xpath expr="//field[@name='invoice_line_ids_two']/tree/field[@name='discount_amount']" position="replace"></xpath>
+            
+            <xpath expr="//field[@name='invoice_line_ids_two']/tree/field[@name='quantity']" position="after">
+                <field name="price_unit" digits="(10, 3)"/>
+                <field name="discount" groups="sale.group_discount_per_so_line" string="Disc.(%)" digits="(10, 3)" tabindex="-1"/>
+                <field name="discount_amount" groups="sale.group_discount_per_so_line" digits="(10, 3)" tabindex="-1"/>
+            </xpath>
+            
+
+            
+        </field>
+    </record>      
+      
+
+  </data>
+</odoo>

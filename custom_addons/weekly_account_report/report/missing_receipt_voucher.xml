@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <template id="missing_receipt_voucher_document">
+            <!--<t t-call="report.external_layout">-->
+                <div class="header">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <img t-if="user.company_id.header_image_qweb" t-att-src="'data:image/png;base64,%s' % user.company_id.header_image_qweb" />
+                        </div>
+                    </div>
+                </div>
+                <div class="page">
+                    <center>
+                        <h2>
+                            <span>Missing Receipt Voucher Report</span>
+                        </h2>
+                            <strong>Start Ref:</strong>
+                            <span t-field="o.start"/>
+                            <strong>-        Ending Ref:</strong>
+                            <span t-field="o.end"/>
+                    </center>
+                    <t t-set="res" t-value="get_missing_vouchers(o)"/>
+
+                    <newline/>
+                    <span style="font-size:10px;">.</span>
+                    <!--<span style="font-weight:bold;font-size:18px;">Collector:</span><span t-field="o.partner_id.name"/>-->
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Missing Receipt Vouchers</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="res" t-as="line">
+                                <tr>
+                                    <td>
+                                        <span t-esc="line['no']"/>
+                                    </td>
+                                </tr>
+                            </t>
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <div class="footer">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <img t-if="user.company_id.footer_image_qweb" t-att-src="'data:image/png;base64,%s' % user.company_id.footer_image_qweb" />
+                        </div>
+                    </div>
+                </div>
+            <!--</t>-->
+        </template>
+                    
+
+
+        <template id="missing_receipt_voucher">
+            <t t-call="report.html_container">
+                <t t-foreach="doc_ids" t-as="o">
+                    <t t-call="weekly_account_report.missing_receipt_voucher_document" />
+                </t>
+            </t>
+        </template>
+
+    </data>
+</openerp>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="import_account_wizard_view" model="ir.ui.view">
+            <field name="name">import.account.wizard</field>
+            <field name="model">import.account</field>
+            <field name="arch" type="xml">
+                <form string="Import Account">
+                    <group>
+                        <group>
+                            <field name="import_option" widget='radio' />
+                        </group>
+                    </group>
+                    <!--<span style="font-size:20px; color:red;" attrs ="{'invisible': [('import_prod_option' ,'!=', 'name')]}">Make sure that you have unique product name for all products Otherwise import doesn't work well</span>-->
+                    <group>
+                        <field name="file" filename="filename"  />
+                    </group>
+                    <footer>
+                        <button name="import_csv" string="Import" type="object"/>
+                        or
+                        <button string="Cancel" class="oe_highlight" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_import_account_wizard" model="ir.actions.act_window">
+            <field name="name">Import Account</field>
+            <field name="res_model">import.account</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem action="action_import_account_wizard"
+                  id="import_account_wizard"
+                  parent="account.menu_finance_receivables" sequence="31"/>
+
+    </data>
+</openerp>
+ 

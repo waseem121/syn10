@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+	<record id="view_move_form_data_entry_direct_sale_syn" model="ir.ui.view">
+	    <field name="name">view.move.form.data.entry.direct.sale.syn</field>
+	    <field name="model">account.move</field>
+	    <field name="inherit_id" ref="account_powersports.view_move_form_data_entry"/>
+	    <field name="arch" type="xml">
+                <xpath expr="//tree/field[@name='name']" position="after">
+                    <field name="x_particulars"/>
+                </xpath>
+	    </field>
+	</record>
+
+    </data>
+</openerp>

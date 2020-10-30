@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+
+        <record id="base.action_partner_form" model="ir.actions.act_window">
+            <field name="name">Customers</field>
+        </record>
+
+         <record id="base.action_partner_customer_form" model="ir.actions.act_window">
+            <field name="name">Customers</field>
+        </record>
+
+        <record model="ir.ui.menu" id="sales_team.menu_partner_form">
+             <field name="name">Customers</field>
+        </record>
+
+        <record id="view_res_partner_filter" model="ir.ui.view">
+            <field name="name">res.partner.select</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <filter name="customer" position="attributes">
+                    <attribute name="string">Customer</attribute>
+                </filter>
+            </field>
+        </record>
+
+    </data>
+</odoo>

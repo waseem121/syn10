@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+
+        <template id="assets" inherit_id="point_of_sale.assets">
+            <xpath expr="." position="inside">
+                 <script type="text/javascript" src="/health_planet_core/static/src/js/screens.js"></script>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>
